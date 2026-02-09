@@ -1,0 +1,45 @@
+# Fully Automated Assignment Generator Prompt for Copilot
+
+Use this prompt with GitHub Copilot (or Copilot Chat) to generate a complete Android assignment with robust test cases, Docker image, and all required files. Just paste your starter and solution XML code in the marked sections.
+
+---
+
+**Prompt:**
+
+I want to generate a new Android assignment for my web platform. Please do the following:
+
+1. Use the following XML as the starter code (put this in startercode.zip as activity_main.xml):
+
+[PASTE YOUR STARTER XML CODE HERE]
+
+2. Use the following XML as the solution code (put this in solution.zip as activity_main.xml):
+
+[PASTE YOUR SOLUTION XML CODE HERE]
+
+3. Automatically create a new assignment folder in the root directory, named assignmentN (where N is the next available number, e.g., assignment3 if assignment2 exists).
+
+4. Automatically set the assignment ID to a unique 3-digit number (e.g., 003, 004, ...).
+
+5. Automatically generate a description based on the starter and solution XML (e.g., mention the layout type, number of TextViews, and any constraints present).
+
+6. Generate all required files and folders for the assignment, including:
+   - Dockerfile
+   - docker-compose.yml
+   - runner.sh
+   - enhance_json.py
+   - conftest.py
+   - pytest.ini
+   - test_assignment.py (with at least 10 robust test cases for Android XML validation)
+   - startercode.zip
+   - solution.zip
+   - ARCHITECTURE.md, README.md, src/
+   - Build the Docker image (x86) and save as x86.tar
+
+7. Do not leave any placeholder test files—ensure test_assignment.py is always robust and complete.
+
+---
+
+**Instructions:**
+- Replace the [PASTE YOUR ...] sections above with your actual code.
+- Run the prompt in Copilot Chat or Copilot workspace.
+- The generator will create everything automatically, ready for upload or use.
