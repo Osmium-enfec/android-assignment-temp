@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  judge:
+    image: assignment3-x86:latest
+    platform: linux/amd64
+    working_dir: /app
+    volumes:
+      - ./src:/app/submission:ro
+    networks:
+      - judge-network
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=50m
+    stdin_open: true
+    tty: true
+    command: /bin/sh -c "export PYTHONPATH=/app/submission:/app:$PYTHONPATH && /app/runner.sh"
+networks:
+  judge-network:
+    driver: bridge
